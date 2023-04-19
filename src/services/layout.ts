@@ -11,7 +11,7 @@ function displayWelcomeMessage(message: string, companyName: string): void {
 
 const displayCloseMessage = function (message: string): void {
   console.log(
-    `--------------------------${message}"--------------------------`
+    `\n--------------------------${message}"--------------------------`
   );
 };
 
