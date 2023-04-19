@@ -11,8 +11,8 @@ const getFilesInFolder = (folder: string): string[] => {
   }
 };
 
-function getFilesContentInJson(folder: string, files: string[]): Employee[] {
-  const employeesData: Employee[] = [];
+function getFilesContentInJson<T>(folder: string, files: string[]): T[] {
+  const employeesData: T[] = [];
 
   files.forEach((file) => {
     const path = completeFilePath(folder, file);

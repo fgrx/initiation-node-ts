@@ -1,3 +1,4 @@
+import { Employee } from "./interfaces/iEmployee";
 import Analytics from "./services/analytics";
 import {
   getFilesContentInJson,
@@ -15,7 +16,7 @@ displayWelcomeMessage("Rapport sur les employés", "Ma petite entreprise");
 const employeesFolder = "./employees";
 
 const files = getFilesInFolder(employeesFolder);
-const filesContent = getFilesContentInJson(employeesFolder, files);
+const filesContent = getFilesContentInJson<Employee>(employeesFolder, files);
 
 const analytics = new Analytics(filesContent);
 
