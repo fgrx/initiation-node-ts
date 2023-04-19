@@ -1,4 +1,5 @@
 import fs from "fs";
+import { Employee } from "../interfaces/iEmployee";
 
 const getFilesInFolder = (folder: string): string[] => {
   try {
@@ -10,8 +11,8 @@ const getFilesInFolder = (folder: string): string[] => {
   }
 };
 
-function getFilesContentInJson(folder: string, files: string[]): any[] {
-  const employeesData: any[] = [];
+function getFilesContentInJson(folder: string, files: string[]): Employee[] {
+  const employeesData: Employee[] = [];
 
   files.forEach((file) => {
     const path = completeFilePath(folder, file);
@@ -19,8 +20,6 @@ function getFilesContentInJson(folder: string, files: string[]): any[] {
     try {
       const content = fs.readFileSync(path, "utf8");
       const contentInJSON = JSON.parse(content);
-      console.log(contentInJSON);
-
       employeesData.push(contentInJSON);
     } catch (error) {
       console.error(`${path} : Problème avec le fichier`, error);
